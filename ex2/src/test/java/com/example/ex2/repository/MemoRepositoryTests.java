@@ -10,6 +10,7 @@ import java.util.stream.IntStream;
 
 @SpringBootTest
 public class MemoRepositoryTests{
+
     @Autowired
     MemoRepository memoRepository;
 

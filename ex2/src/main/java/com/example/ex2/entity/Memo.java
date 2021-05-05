@@ -12,11 +12,11 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Memo {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id // Primaty Key 지정
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // MariaDB autoincrease
     private Long mno;
 
-    @Column(length = 200, nullable = false)
+    @Column(length = 200, nullable = false) //memeText 문자열 길이와 null가능 여부 지정
     private String memoText;
 }
 
