@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Ex2</title>
+    <style>
+        .red { color: tomato; }
+        .blue { color: cornflowerblue; }
+    </style>
+</head>
+<body>
+<!--    <ul>-->
+<!--        <li th:each="dto, state : ${list}">-->
+<!--            <p th:if="${dto.sno % 5 == 0}" th:text="${dto.sno+' -&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;'+' 5의배수'}" th:class="${dto.sno % 10 == 0} ? ${'red'} : ${'blue'}"></p>-->
+<!--            <p th:unless="${dto.sno % 5 == 0}" th:text="${dto.sno+' / '+dto.first}"></p>-->
+<!--        </li>-->
+<!--    </ul>-->
+
+    <ul>
+<!--        HTML에서 별도 출력되지 않기 때문에 LOOP등 처리하는데 많이 쓰임-->
+        <th:block th:each="dto, state : ${list}">
+            <li >
+                <p th:if="${dto.sno % 5 == 0}" th:text="${dto.sno+' ---------'+' 5의배수'}" th:class="${dto.sno % 10 == 0} ? ${'red'} : ${'blue'}"></p>
+                <p th:unless="${dto.sno % 5 == 0}" th:text="${dto.sno+' / '+dto.first}"></p>
+            </li>
+        </th:block>
+    </ul>
+</body>
+</html>

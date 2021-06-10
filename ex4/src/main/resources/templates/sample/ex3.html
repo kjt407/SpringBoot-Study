@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Ex3</title>
+</head>
+<body>
+    <script th:inline="javascript">
+        var msg = [[${result}]];
+        var dto = [[${dto}]];
+
+        // var dto_json = JSON.parse(dto);
+        // console.log(dto_json);
+        console.log(dto.sno);
+    </script>
+    <h1 th:text="${'헬로월드'}"></h1>
+</body>
+</html>
