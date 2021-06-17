@@ -20,14 +20,14 @@ public class GuestBookRepositoryTest {
     @Autowired
     private GuestBookRepository guestBookRepository;
 
-    @Test
-    public void insertDummies(){
-
-        IntStream.rangeClosed(1,300).forEach(i->{
-            Guestbook guestBook = Guestbook.builder().title("제목 "+i).content("내용 "+i).writer("쫑태").build();
-            System.out.println(guestBookRepository.save(guestBook));
-        });
-    }
+//    @Test
+//    public void insertDummies(){
+//
+//        IntStream.rangeClosed(1,300).forEach(i->{
+//            Guestbook guestBook = Guestbook.builder().title("제목 "+i).content("내용 "+i).writer("쫑태").build();
+//            System.out.println(guestBookRepository.save(guestBook));
+//        });
+//    }
 
 //    @Test
 //    public void changeDummies(){
@@ -52,7 +52,11 @@ public class GuestBookRepositoryTest {
 
         BooleanBuilder builder = new BooleanBuilder();
         BooleanExpression expression = qGuestBook.title.contains(keyword);
-        builder.and(expression);
+        BooleanExpression expression2 = qGuestBook.content.contains("1");
+        BooleanExpression expression_all = expression.or(expression2);
+
+        builder.and(expression_all);
+        builder.and(qGuestBook.gno.lt(100));
 
         Page<Guestbook> result = guestBookRepository.findAll(builder,pageable);
 
