@@ -3,6 +3,7 @@ package com.example.guestbookreal.dto;
 import lombok.Data;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.thymeleaf.standard.expression.Each;
 
 import java.util.List;
 import java.util.function.Function;
@@ -24,6 +25,9 @@ public class PageResultDto<DTO,EN> {
 
     public PageResultDto(Page<EN> result, Function<EN, DTO> fn){
         dtoList = result.stream().map(fn).collect(Collectors.toList());
+//        List list = result.stream().collect(Collectors.toList());
+//                dtoList = list;
+//        dtoList = result.map(fn).toList();
 
         totalPage = result.getTotalPages();
         makePageList(result.getPageable());

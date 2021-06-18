@@ -11,7 +11,7 @@
       </thead>
       <tbody>
         <tr th:each="dto:${result.dtoList}">
-          <th scope="row">[[${dto.gno}]]</th>
+          <th scope="row">[[${dto}]]</th>
           <td>[[${dto.title}]]</td>
           <td>[[${dto.writer}]]</td>
           <td>[[${#temporals.format(dto.regDate, 'yyyy/MM/dd')}]]</td>
