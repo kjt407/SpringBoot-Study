@@ -5,10 +5,18 @@ import com.example.guestbookreal.dto.PageRequestDto;
 import com.example.guestbookreal.dto.PageResultDto;
 import com.example.guestbookreal.entity.Guestbook;
 
+import java.util.Optional;
+
 public interface GuestbookService {
     Long register(GuestbookDto dto);
 
     PageResultDto<GuestbookDto, Guestbook> getList(PageRequestDto requestDTO);
+
+    GuestbookDto read(Long gno);
+
+    void remove(Long gno);
+
+    void modify(GuestbookDto dto);
 
     default Guestbook dtoToEntity(GuestbookDto dto) {
         Guestbook entity = Guestbook.builder()
